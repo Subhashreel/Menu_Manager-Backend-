@@ -29,6 +29,8 @@ export async function listMenuTree() {
       price: item.price,
       availability: Boolean(item.availability),
       preparationComplexity: item.preparationComplexity,
+      description: item.description ?? null,   
+      categoryId: item.categoryId,       
     })),
   }));
 }

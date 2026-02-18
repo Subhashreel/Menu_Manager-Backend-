@@ -13,7 +13,7 @@ export async function listMenuTreeHandler(_req: Request, res: Response) {
   const tree = await listMenuTree();
   return sendResponse(res, SUCCESS_CODES.MENU_TREE, tree);
 }
-// 1️⃣ Admin: list menu items with filters
+
 export async function listMenuHandler(req: Request, res: Response) {
   const availability =
     req.query.availability !== undefined
@@ -33,13 +33,11 @@ export async function listMenuHandler(req: Request, res: Response) {
   return sendResponse(res, SUCCESS_CODES.MENU_LIST, items);
 }
 
-// 2️⃣ Admin: create or update menu item
 export async function upsertMenuHandler(req: Request, res: Response) {
   const item = await upsertMenuItem(req.body);
   return sendResponse(res, SUCCESS_CODES.MENU_UPSERTED, item);
 }
 
-// 3️⃣ Admin: toggle availability
 export async function toggleMenuAvailabilityHandler(req: Request, res: Response) {
   const id = Number(req.params.id);
   const { availability } = req.body;
@@ -48,7 +46,6 @@ export async function toggleMenuAvailabilityHandler(req: Request, res: Response)
   return sendResponse(res, SUCCESS_CODES.MENU_AVAILABILITY_UPDATED, item);
 }
 
-// 4️⃣ Admin: delete menu item
 export async function deleteMenuHandler(req: Request, res: Response) {
   await deleteMenuItem(Number(req.params.id));
   return sendResponse(res, SUCCESS_CODES.MENU_DELETED);

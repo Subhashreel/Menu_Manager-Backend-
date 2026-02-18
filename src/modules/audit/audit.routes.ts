@@ -1,5 +1,3 @@
-// 
-
 import { Router } from 'express';
 import { getAuditLogsHandler } from './audit.controller';
 
