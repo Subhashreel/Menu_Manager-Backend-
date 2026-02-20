@@ -4,3 +4,4 @@ dist/
 migrations/
 models/
 package-lock.json
+config/
